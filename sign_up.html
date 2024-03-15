@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ogin Form</title>
+    <title>Coder Forum</title>
     <style>@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 * {
   margin: 0;
@@ -121,59 +121,68 @@ body {
 }</style>
 
 
+
 </head>
 <body>
     <a href="index.html" style="position: absolute; top: 20px; right: 80px; color: #fff; text-decoration: none;">Home</a>
+
     <!--ring div starts here-->
 <div class="ring">
   <i style="--clr:#00ff0a;"></i>
   <i style="--clr:#ff0057;"></i>
   <i style="--clr:#fffd44;"></i>
   <div class="login">
-    <h2>Login</h2>
+    <h2>Register</h2>
     <div class="inputBx">
-        <input type="text" placeholder="Username">
+      <input type="text" placeholder="name">
     </div>
     <div class="inputBx">
-        <input type="password" placeholder="Password">
+        <input type="text" id="email" placeholder="Email">
     </div>
     <div class="inputBx">
-        <input type="submit" value="Sign in" >
+        <input type="password" id="password" placeholder="Password">
+    </div>
+    <div class="inputBx">
+      <input type="password" placeholder="Confirm Password">
+    </div>
+    <div class="inputBx">
+        <input type="submit" value="Sign up">
+    </div>
     <div class="links">
-      <a href="#">Forget Password</a>
-      <a href="sign_up.html">Signup</a>
-      <a href="quiz_builder.html">Skip</a>
-      
+      <a href="#">Forgot Password?</a>
+      <a href="create_quiz.html">Login </a>
 
     </div>
   </div>
 </div>
 <!--
-<script>function signIn() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-  
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in successfully
-        var user = userCredential.user;
-        console.log("Signed in successfully:", user);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error("Sign in error:", errorCode, errorMessage);
-      });
-  }
-  </script>-->
+<script>
+    function signUp() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+      
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // Signed up successfully
+            var user = userCredential.user;
+            console.log("Signed up successfully:", user);
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.error("Sign up error:", errorCode, errorMessage);
+          });
+      }
+      
+</script>-->
 <!--ring div ends here-->
+
 </body>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
-    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -192,10 +201,9 @@ body {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+    
 
     console.log(app)
   </script>
 </html>
-
-
 
